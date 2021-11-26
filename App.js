@@ -1,18 +1,17 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, {Component} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import FirstComponent from './FirstComponent';
 
 export default class App extends Component {
   render() {
     return (
-      //Ekstra bir css uygulanacaksa köşeli[] parantazlerle yapılabilir
-      <View style={[style.welcome_area], {backgroundColor:'blue'}}>
-        <Text style={style.welcome_text}>Merhaba Muhammed Bey </Text>
+      <View style={{flex: 1, paddingTop: 10}}>
+
+        
+        <Text>App Page  </Text>
+
+        <FirstComponent adProp={"MUHAMMED"} textProp={"HOŞGELDİN"} />
       </View>
-    )
+    );
   }
 }
-
-const style= StyleSheet.create({
-  welcome_area:{padding:100, backgroundColor:'green'},
-  welcome_text:{color:'white', fontSize:30}
-})
