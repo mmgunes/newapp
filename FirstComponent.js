@@ -1,13 +1,17 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
 
-const FirstComponent = ({adProp,textProp}) => {
-    return (
-        <View>
-            
-            <Text>Prop kullan {adProp} ve {textProp}  diğer sayfadan geldi</Text>
-        </View>
-    )
-}
+const FirstComponent = ({adProp, textProp, degistirFonkProp}) => {
+  return (
+    <View>
+      <Text>
+        Prop kullan {adProp} ve {textProp} diğer sayfadan geldi
+      </Text>
+      <TouchableOpacity onPress={degistirFonkProp} style={{margin:15,alignItems:'center' ,borderColor:'green', borderRadius:30 ,borderWidth:1}}>
+        <Text>Diğer Sayfadaki {degistirFonkProp} fonksiyonu kullanarak değiştir</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-export default FirstComponent
+export default FirstComponent;

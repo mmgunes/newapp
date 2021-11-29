@@ -47,8 +47,8 @@ export default class App extends Component {
           style={{backgroundColor: 'yellow', height: 30, alignItems: 'center'}}>
           <Text> Tıkla Değiştir</Text>
         </TouchableOpacity>
-
-        <FirstComponent adProp={'MUHAMMED'} textProp={'HOŞGELDİN'} />
+        {/* <FirstComponent adProp={'MUHAMMED'} textProp={'HOŞGELDİN'} /> */}
+        <FirstComponent adProp={name} textProp={year} degistirFonkProp={this.degistirState}/>
       </View>
     );
   }
