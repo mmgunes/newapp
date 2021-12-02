@@ -16,7 +16,7 @@ import {
 
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 import ImageKullan from './ImageKullan';
 
 export class NavigationApp extends Component {
@@ -47,11 +47,12 @@ export class DetailApp extends Component {
     return (
       <SafeAreaView>
         <ScrollView>
-          <TouchableOpacity onPress={()=>this.props.navigation.navigate('DetailApp')}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('DetailApp')}>
             <Text>Değiştir</Text>
           </TouchableOpacity>
-          <View style={{height: 100, backgroundColor: 'gray'}}></View>
-          <View style={{height: 100, backgroundColor: 'blue'}}></View>
+          <View style={{height: 100, backgroundColor: 'green'}}></View>
+          <View style={{height: 100, backgroundColor: 'green'}}></View>
           <View style={{height: 100, backgroundColor: 'yellow'}}></View>
           <View style={{height: 100, backgroundColor: 'red'}}></View>
           <View style={{height: 100, backgroundColor: 'blue'}}></View>
@@ -64,18 +65,47 @@ export class DetailApp extends Component {
     );
   }
 }
-//const AppNavigator = createStackNavigator({
 
-const AppNavigator = createBottomTabNavigator({
-  Anasayfa: {
+const AnasayfaStack = createStackNavigator({
+  AnasayfaStack: {
     screen: NavigationApp,
   },
-  Detay: {
+
+});
+
+const DetayStack = createStackNavigator({
+
+  DetayStack: {
     screen: DetailApp,
   },
-  Image:{
-    screen: ImageKullan
-  }
+});
+
+//1.yöntem
+
+//const AppNavigator = createStackNavigator({
+
+//2.Yöntem
+// const AppNavigator = createBottomTabNavigator({
+//   Anasayfa: {
+//     screen: NavigationApp,
+//   },
+//   Detay: {
+//     screen: DetailApp,
+//   },
+//   Image: {
+//     screen: ImageKullan,
+//   },
+// });
+
+
+//3.Yöntem Stack Kullanarak
+
+const AppNavigator = createBottomTabNavigator({
+  Anasayfa: AnasayfaStack,
+  Detay: DetayStack,
+  Image: {
+    screen: ImageKullan,
+  },
 });
 
 export default createAppContainer(AppNavigator);
