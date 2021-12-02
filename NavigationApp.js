@@ -16,6 +16,8 @@ import {
 
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import ImageKullan from './ImageKullan';
 
 export class NavigationApp extends Component {
   render() {
@@ -45,12 +47,12 @@ export class DetailApp extends Component {
     return (
       <SafeAreaView>
         <ScrollView>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('DetailApp')}>
             <Text>Değiştir</Text>
           </TouchableOpacity>
-          <View style={{height: 100, backgroundColor: 'red'}}></View>
+          <View style={{height: 100, backgroundColor: 'gray'}}></View>
           <View style={{height: 100, backgroundColor: 'blue'}}></View>
-          <View style={{height: 100, backgroundColor: 'black'}}></View>
+          <View style={{height: 100, backgroundColor: 'yellow'}}></View>
           <View style={{height: 100, backgroundColor: 'red'}}></View>
           <View style={{height: 100, backgroundColor: 'blue'}}></View>
           <View style={{height: 100, backgroundColor: 'black'}}></View>
@@ -62,10 +64,18 @@ export class DetailApp extends Component {
     );
   }
 }
-const AppNavigator = createStackNavigator({
+//const AppNavigator = createStackNavigator({
+
+const AppNavigator = createBottomTabNavigator({
   Anasayfa: {
     screen: NavigationApp,
   },
+  Detay: {
+    screen: DetailApp,
+  },
+  Image:{
+    screen: ImageKullan
+  }
 });
 
 export default createAppContainer(AppNavigator);

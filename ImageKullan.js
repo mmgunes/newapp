@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { AppRegistry, View, Image, StyleSheet } from 'react-native';
+import { Text,AppRegistry, View, Image, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,6 +30,7 @@ class DisplayAnImage extends Component {
           style={styles.logo}
           source={{uri: 'https://www.mertbuldur.com/public/1.jpg'}}
         />
+        <Text style={{fontSize:22, textAlign:'center', color:'purple'}}>Servet Bilicier</Text>
       </View>
     );
   }
